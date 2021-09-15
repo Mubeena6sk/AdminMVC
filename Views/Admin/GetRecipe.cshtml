@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AdminMVC.Models.RecipeClass>
+
+@{
+    ViewData["Title"] = "GetRecipe";
+}
+
+<h1>GetRecipe</h1>
+
+<p>
+    <a asp-action="AddRecipe">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instructions)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructions)
+            </td>
+            <td>
+       
+  
+                @Html.ActionLink("Delete", "DeleteRecipe", new {  id=item.Rid  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
